@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <img src="{% static 'images/img.png' %}" height="500px" width="100%;"   >
+</div>
+    <div class="container-fluid mt-4" style="margin-bottom:100px;color:white;">
+    <h3 class="text-center"><b >OUR COLLECTIONS</b></h3>
+    <P style="line-height:1.8;text-align:justify;"><b>The world of ecommerce is an exciting one, and it’s constantly changing and evolving to meet the needs of consumers. While this is great for customers shopping online, it can present a challenge for business owners who don’t often have the time or resources to keep up with the latest payment options or check their sites for platform or software updates.<br>
+    Premium Designer's Latest Collections. If you do find for less elsewhere, let us know & we will be happy to match that price.</b> </P>
+</div>
+<center><div class="container-fluid mt-4 " style="margin-bottom:100px; ">
+<div class="row" >
+    {% for i in c %}
+  <div class="col-sm-4">
+<div class="card" style="width: 20rem;">
+  <img src="{{i.image.url}}" class="card-img-top" alt="..." style="height:160px;">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <p class="card-text">{{i.desc}}</p>
+    <a href="{% url 'shop:allproducts' i.name %}" class="btn btn-success">PRODUCTS</a>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+    </center>
+{% endblock %}
+
